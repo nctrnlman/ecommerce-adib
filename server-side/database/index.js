@@ -1,20 +1,20 @@
-const mysql = require('mysql2')
-const util = require('util')
+const mysql = require("mysql2");
+const util = require("util");
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "sembilan9",
-    database: "db_ecommerce_exercise",
-    port: 3306
-})
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "exercise_ecommerce",
+  port: 3306,
+});
 
 db.connect((err) => {
-    if (err) {
-        return console.error(`error: ${err.message}`)
-    }
-    console.log("Connected to mysql server")
-})
+  if (err) {
+    return console.error(`error: ${err.message}`);
+  }
+  console.log("Connected to mysql server");
+});
 
-const query = util.promisify(db.query).bind(db)
-module.exports = { db, query }
+const query = util.promisify(db.query).bind(db);
+module.exports = { db, query };
